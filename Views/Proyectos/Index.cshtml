@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "Practica";
+}
+<head>
+    <link rel="icon" src="https://i.ibb.co/hVy8xts/descarga-1-fotor-bg-remover-20231025111356.png" />
+</head>
+<div class="table-responsive" >
+    <table class="table table-bordered">
+        <thead>
+            <tr class="table-info">
+                <th scope="col">Nombre del proyecto</th>
+                <th scope="col">URL al proyecto</th>
+                <th scope="col">Lenguaje/Tecnologia</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+        </tbody>
+    </table>
+</div>
+
+<script>
+    var request = new XMLHttpRequest();
+
+    request.open('GET', 'https://api.github.com/users/Shino2302/repos', true)
+
+    request.onload = function () {
+        var data = JSON.parse(this.response);
+
+        var statusHTML = '';
+
+        $.each(data, function(i, status) {
+            statusHTML += `<tr>`;
+            statusHTML += `<td>` + status.name + `</td>`;
+            statusHTML += `<td>` + status.html_url + `</td>`;
+            statusHTML += `<td>` + status.language + `</td>`;
+            statusHTML += `</tr>`;
+        });
+        
+        $('tbody').html(statusHTML);
+    }
+    request.send();
+</script>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>

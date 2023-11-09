@@ -1,0 +1,26 @@
+﻿@model List<InformacionModel>;
+@{
+    ViewData["Title"] = "Portafoliio Sigfrido"; 
+}
+<head>
+    <link rel="icon" src="https://i.ibb.co/hVy8xts/descarga-1-fotor-bg-remover-20231025111356.png" />
+    <link rel="stylesheet" href="css/EstilosExpress.css"/>
+</head>
+<div>
+    <div>
+        <div class="img-desarrollador">
+            <img class="circulo" src="https://i.ibb.co/LxC0LDH/IMG-20201115-165638-2.jpg" alt="Desarrollador" border="0">
+        </div>
+    </div>
+    <div class="Titulo">
+        @foreach(var listar in Model)
+        {
+            <h1 class="Titulo_Desarrollador">@Html.DisplayFor(modelItem => listar.Nombre) @Html.DisplayFor(modelItem => listar.Apellido)</h1>
+        }
+    </div>
+    <div class="Info-AcercaDe">
+        <article>
+
+        </article>
+    </div>
+</div>
